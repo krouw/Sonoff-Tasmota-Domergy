@@ -194,7 +194,9 @@ Antes de Subir nuestro código es necesario comprobar a cual interfaz Serial est
 + Con el botón pulsado conectamos el dispositivo por USB al ordenador y en el Arduino IDE cliqueamos en ```
 Subir ```. (Recordar siempre mantener pulsado el botón del dispositivo hasta que finalice la carga).
 
-+ Una vez finalizada la carga se puede comprobar el estado del dispositvo a través de la Interfaz Web, ingresando por medio del navegador a la URL http://IP_DEL_DISPOSITIVO o comprobando la comunicación entre el dispositivo y el MQTT broker.
++ Una vez finalizada la carga es necesario reiniciar el dispositivo desconectando la TomaCorriente.
+
++ Para comprobar el estado del dispositvo a través de la Interfaz Web, ingresando por medio del navegador a la URL http://IP_DEL_DISPOSITIVO o comprobando la comunicación entre el dispositivo y el MQTT broker.
 
 ***
 
