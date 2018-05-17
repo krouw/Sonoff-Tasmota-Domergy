@@ -2,12 +2,12 @@
 
   Este tutorial explica las consideraciones y pasos a realizar para modificar el Firmware utilizado en los dispositivos Sonoff Pow.
 
-  Estos dispositivos sirven para el control de artefactos eléctricos, permitiendo además la telemetría del consumo eléctrico. El corazón de este dispositivo es el chip ESP8266, el cual permite la comunicación y procesamiento de las mediciones adquiridas por los sensores para luego ser replicadas en diferentes servidores a través de Wifi. El disposito cuenta con un botón, un relé para el control remoto y sensores que cuantifican los valores de voltaje ,corriente, potencia, factor de potencia y consumo energético ( kWh ).
+  Estos dispositivos sirven para el control de artefactos eléctricos, permitiendo además la telemetría del consumo eléctrico. El corazón de este dispositivo es el chip ESP8266, el cual permite la comunicación y procesamiento de las mediciones adquiridas por los sensores para luego ser replicadas en diferentes servidores a través de Wifi. El disposito cuenta con un botón, un relé para el control remoto y sensores que cuantifican los valores de voltaje ,corriente, potencia, factor de potencia y consumo energético (kWh).
 
 
-  Sonoff predeterminadamente se conecta con un servicio ( servidor ) privado mantenido por empresa desarrolladora del dispositivo. Con el fin de utilizar un servicio propio nace la necesidad de actualizar o modificar el Firmware del dispositivo, por uno que permita establecer la configuración para la conexión WiFi y la conexión hacia el servidor.
+  Sonoff predeterminadamente se conecta con un servicio (servidor) privado mantenido por la empresa desarrolladora del dispositivo. Con el fin de utilizar un servicio propio nace la necesidad de actualizar o modificar el Firmware del dispositivo, por uno que permita establecer la configuración para la conexión WiFi y la conexión hacia el servidor.
 
-  Esta actualización se realiza a través del puerto de comunicación FTDI de la placa, la cual permite la conexión del dispositivo con un ordernador encargado de enviar el nuevo código. El Firmware a utilizar será Sonoff-Tasmota, éste permite el normal funcionamiento del dispositivo, sumando a un conjunto de comandos que permiten modificar la configuración, el control y análisis de datos, a través múltiples protocolos de accesos como Serial, MQTT y una Interfaz Web.
+  Esta actualización se realiza a través del puerto de comunicación FTDI de la placa, la cual permite la conexión del dispositivo con un ordernador encargado de enviar el nuevo código. El Firmware a utilizar será Sonoff-Tasmota, éste permite el normal funcionamiento del dispositivo, sumando a un conjunto de comandos que permiten modificar la configuración, el control y análisis de datos, a través múltiples protocolos de acceso como Serial, MQTT y una Interfaz Web.
 
 ***
 
@@ -15,9 +15,9 @@
 
 #### Requerimientos de Hardware
 
-+ Contar con un disposito Sonoff Pow ( ESP8266 )
-+ Conversor FTID a USB Serial de 3.3V
-+ Soldar Pines en los puertos FTID de la placa
++ Contar con un disposito Sonoff Pow (ESP8266)
++ Conversor FTDI a USB Serial de 3.3V
++ Soldar Pines en los puertos FTDI de la placa
 
 #### Requerimientos de Software  
 + Instalar [Arduino IDE](https://www.arduino.cc/en/main/software)
@@ -33,7 +33,9 @@
 
 1. En un primer paso es necesario soldar los pines In/Out en el puerto de comunicación FTDI del dispositivo Sonoff, como se muestra en la siguiente imagen.
 
-2. Conectar el Conversor FTID a USB Serial utilizando el siguiente order
+![config](./images/FTDI.jpg "Config")
+
+2. Conectar el Conversor FTDI a USB Serial utilizando el siguiente orden
 
 | Conversor     | Módulo Sonoff |
 | ------------- |:-------------:|
@@ -44,11 +46,13 @@
 
 ### ** **Atención**
 
-+ No conectar el VCC al mismo tiempo que el Voltaje AC ( No medir y programar al mismo tiempo ), ya que esto puede dañar el dispositivo.
++ No conectar el VCC al mismo tiempo que el Voltaje AC (No medir y programar al mismo tiempo), ya que esto puede dañar el dispositivo.
 
-+ El order de la conexión del Voltaje AC que permite la medición es el siguiente ( Imágen )
++ El orden de la conexión del Voltaje AC que permite la medición es el siguiente
 
 Lo-E-E-N-N-Li = LineOut-EarthOut-EarthIn-NeutralOut-NeutralIn-LineIn
+
+![config](./images/FTDI.jpg "Config")
 
 ***
 
@@ -56,19 +60,19 @@ Lo-E-E-N-N-Li = LineOut-EarthOut-EarthIn-NeutralOut-NeutralIn-LineIn
 
 1. Una vez finalizada la preparación el Hardware es necesario instalar y abrir el programa Arduino IDE.
 
-2. En el Arduino IDE instalaremos la extensión ESP8266 que brinda soporte para la plataforma Arduino a las placas construidas con este chip. Para ello iremos a ```Archivo -> Preferencias``` y en la entrada *'Gestor de URLs Adicionales de Tarjetas'* agregamos el siguiente link ```http://arduino.esp8266.com/stable/package_esp8266com_index.json``` y seleccionamos *'OK'*.
+2. En el Arduino IDE, instalaremos la extensión ESP8266 que brinda soporte para la plataforma Arduino a las placas construidas con este chip. Para ello iremos a ```Archivo -> Preferencias``` y en la entrada *'Gestor de URLs Adicionales de Tarjetas'* agregamos el siguiente link ```http://arduino.esp8266.com/stable/package_esp8266com_index.json``` y seleccionamos *'OK'*.
 
-3. Luego de agregado la URL es necesario dirigirse a ```Herramientas -> Placa -> Gestor de Tarjetas```, una vez dentro buscamos la extensión *esp8266 by ESP8266 Community* ( Recordar la versión que se está instalando ) y le damos click a instalar. Una vez finalizada la instalación cerramos la ventana.
+3. Luego de agregada la URL es necesario dirigirse a ```Herramientas -> Placa -> Gestor de Tarjetas```, una vez dentro buscamos la extensión *esp8266 by ESP8266 Community* ( Recordar la versión que se está instalando ) y le damos click a instalar. Una vez finalizada la instalación cerramos la ventana.
 
 4. Finalizada la instalación de la extensión es necesario descargar y descomprimir el Firmware Sonoff-Tasmot, dentro de esta carpeta encontramos todos los archivos necesarios para instalar el Firmware.
 
-5. En un principio agregaremos las librerías requeriedas por el Firmware, para esto iremos al directorio ```Sonoff-Tasmota -> lib ``` y copiaremos todas las carpetas en Arduino/libraries para que estén disponibles en el Arduino IDE.
+5. En un principio agregaremos las librerías requeridas por el Firmware, para esto iremos al directorio ```Sonoff-Tasmota -> lib ``` y copiaremos todas las carpetas en Arduino/libraries para que estén disponibles en el Arduino IDE.
 
    ``` Carpeta Arduino/libraries Windows: C:\Users\NOMBRE_DE_USUARIO\Documents\Arduino\libraries ```
 
    ``` Carpeta Arduino/libraries MacOS: /Users/NOMBRE_DE_USUARIO/Documents/Arduino/libraries ```
 
-6. Para que nuestro firmware reconozca los dispositivos Sonoff necesitamos que se encuentren disponibles en Arduino IDE, para esto reemplazaremos los archivos boards.txt y platform.txt de la extensión ESP8266.
+6. Para que nuestro firmware reconozca los dispositivos Sonoff necesitamos que se encuentren disponibles en Arduino IDE. Para esto reemplazaremos los archivos boards.txt y platform.txt de la extensión ESP8266.
 
 ##### Copiar Archivo
 
@@ -181,16 +185,16 @@ Arduino IDE utiliza una interfaz Serial para cargar el firmware en el dispositiv
 
 Antes de Subir nuestro código es necesario comprobar a cual interfaz Serial está conectado el dispositivo. Conectamos el dispositivo por USB al ordenador y en Arduino IDE ingresamos a ``` Herramientas -> Puerto ``` y seleccionamos la inferfaz que corresponda al Sonoff.
 
-##### Encerder modo *Carga de Firmaware* en Sonoff
+##### Encender modo *Carga de Firmaware* en Sonoff
 
-+ Al realizar una carga de Firmware, no conectar el dispositivo a AC, sino utilizar la fuente de alimentación de la interfaz serial FTID.
++ Al realizar una carga de Firmware, no conectar el dispositivo a AC, sino utilizar la fuente de alimentación de la interfaz serial FTDI.
 
-+ Activamos el modo de carga manteniendo precionado el botón del dispositivo y conectamos el dispositivo a la interfaz serial. ( Se debe mantener el botón pulsado durante toda la carga )
++ Activamos el modo de carga manteniendo presionado el botón del dispositivo y lo conectamos a la interfaz serial. (Se debe mantener el botón pulsado durante toda la carga)
 
 + Con el botón pulsado conectamos el dispositivo por USB al ordenador y en el Arduino IDE cliqueamos en ```
-Subir ```. ( Recordar siempre mantener pulsado el botón del dispositivo hasta que finalice la carga ).
+Subir ```. (Recordar siempre mantener pulsado el botón del dispositivo hasta que finalice la carga).
 
-+ Una vez finalizada la carga se requiere comprobar la comunicación entre el dispositivo y el MQTT broker
++ Una vez finalizada la carga se puede comprobar el estado del dispositvo a través de la Interfaz Web, ingresando por medio del navegador a la URL http://IP_DEL_DISPOSITIVO o comprobando la comunicación entre el dispositivo y el MQTT broker.
 
 ***
 
@@ -198,4 +202,16 @@ Subir ```. ( Recordar siempre mantener pulsado el botón del dispositivo hasta q
 
 El Servidor mqtt de prueba se encuentra en la carpeta broker.
 Para levantar el servidor es necesario instalar
-[NodeJS en su versión LTS](https://nodejs.org/es/download/). Una vez instalado, por medio de la terminal ingresamos a la carpeta *broken* y ejecutar el comando ``$ npm install `` ( Este comando instalará las dependencias necesarias por le broker ). Una vez instaladas las dependecias corremos el servidor ejecutando `` $ node index.js ``
+[NodeJS en su versión LTS](https://nodejs.org/es/download/). Una vez instalado, por medio de la terminal ingresamos a la carpeta *broken* y ejecutamos el comando ``$ npm install `` (Este comando instalará las dependencias necesarias para el broker). Una vez instaladas las dependecias corremos el servidor ejecutando `` $ node index.js `` y comprobamos que los mensajes lleguen al broker.
+
+> Es posible interactuar con el dispositivo mediante el script client.js, el cual publica mensajes que ejecutan comandos en el dispositivo.
+
+***
+
+## Sonoff-Tasmosta Wiki
+
++ [Sonoff-Tasmota GitHub Project](https://github.com/arendst/Sonoff-Tasmota)
++ [Sonoff-Tasmota Wiki](https://github.com/arendst/Sonoff-Tasmota/wiki)
++ [Comportamiento Botón Sonoff](https://github.com/arendst/Sonoff-Tasmota/wiki/Button-usage)  
++ [Configuración MQTT](https://github.com/arendst/Sonoff-Tasmota/wiki/MQTT-Features)  
++ [Comandos Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota/wiki/Commands)  
