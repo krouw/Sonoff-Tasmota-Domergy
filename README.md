@@ -104,16 +104,16 @@ Lo-E-E-N-N-Li = LineOut-EarthOut-EarthIn-NeutralOut-NeutralIn-LineIn
 
 - Seleccionar ``Herramientas`` y configurar la placa siguiendo los atributos de las imágenes.
 
-#### ESP8266 Placa version 2.3.0:
+#### Placa ESP8266 driver version 2.3.0:
 
 ![config](https://raw.githubusercontent.com/arendst/arendst.github.io/master/media/arduinoide230b.png "Config")
 
-#### ESP8266 Placa version 2.4.0:
+#### Placa ESP8266 driver version 2.4.0:
 
 ![config](https://raw.githubusercontent.com/arendst/arendst.github.io/master/media/arduinoide2b.png "Config")
 
 
-#### ESP8266 Placa version 2.4.1:
+#### Placa ESP8266 driver version 2.4.1:
 
 ![config](https://raw.githubusercontent.com/arendst/arendst.github.io/master/media/arduinoide241b.png "Config")
 
