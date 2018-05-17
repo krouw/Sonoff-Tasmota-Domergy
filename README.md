@@ -33,7 +33,7 @@
 
 1. En un primer paso es necesario soldar los pines In/Out en el puerto de comunicación FTDI del dispositivo Sonoff, como se muestra en la siguiente imagen.
 
-![config](./images/FTDI.jpg "Config")
+![FTDI](./images/FTDI.jpg "FTDI")
 
 2. Conectar el Conversor FTDI a USB Serial utilizando el siguiente orden
 
@@ -52,7 +52,7 @@
 
 Lo-E-E-N-N-Li = LineOut-EarthOut-EarthIn-NeutralOut-NeutralIn-LineIn
 
-![config](./images/FTDI.jpg "Config")
+![TomaCorriente](./images/TomaCorriente.jpg "TomaCorriente")
 
 ***
 
