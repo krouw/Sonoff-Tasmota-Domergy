@@ -22,10 +22,7 @@
 #### Requerimientos de Software  
 + Instalar [Arduino IDE](https://www.arduino.cc/en/main/software)
 + Descargar e instalar MQTT Broker y MQTT Cliente de Prueba
-+ Descargar Firmware [Sonoff-Tasmota version 5.12.0](https://github.com/arendst/Sonoff-Tasmota/archive/v5.12.0.zip)
-
-```Se ha utilizado la version 5.12.0 por problemas de funcionamiento con la version 5.13.0 ```
-
++ Descargar Firmware [Sonoff-Tasmota version 5.14.0](https://github.com/arendst/Sonoff-Tasmota/archive/v5.14.0.zip)
 
 ***
 
@@ -207,6 +204,33 @@ Para levantar el servidor es necesario instalar
 [NodeJS en su versión LTS](https://nodejs.org/es/download/). Una vez instalado, por medio de la terminal ingresamos a la carpeta *broken* y ejecutamos el comando ``$ npm install `` (Este comando instalará las dependencias necesarias para el broker). Una vez instaladas las dependecias corremos el servidor ejecutando `` $ node index.js `` y comprobamos que los mensajes lleguen al broker.
 
 > Es posible interactuar con el dispositivo mediante el script client.js, el cual publica mensajes que ejecutan comandos en el dispositivo.
+
+***
+
+## Calibración
+
+#### Requisitos
+
+1. Multitester calibrado (Voltímetro y Amperímetro)
+2. Wattmetro (Opcional)
+3. Una carga con una potencia conocida.
+
+#### Pasos
+
+1. Abrir el navegador con dos ventanas:
+    - La pagina principal del sonoff
+    - La consola del sonoff
+2. Encender  y esperar hasta que la lectura de los instrumentos se estabilice.
+3. Ahora comparar las mediciones de los instrumentos con las señaladas por el sonoff.
+4. Si se necesita realizar un ajuste, ir a la consola del sonoff y ejecutar alguno de los siguientes comandos:
+
+Para Voltaje: `cmnd/%TOPIC%/VoltageSet %METER%`
+Para Corriente: `cmnd/%TOPIC%/CurrentSet %METER%`
+Para Potencia: `cmnd/%TOPIC%/PowerSet %METER%`
+
+Donde:
+- `%TOPIC%` es el topic del dispositivo sonoff.
+- `%METER%` es la unidad entregada por los instrumentos calibrados.
 
 ***
 
