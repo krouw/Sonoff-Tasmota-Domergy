@@ -22,7 +22,7 @@
 #### Requerimientos de Software  
 + Instalar [Arduino IDE](https://www.arduino.cc/en/main/software)
 + Descargar e instalar MQTT Broker y MQTT Cliente de Prueba
-+ Descargar Firmware [Sonoff-Tasmota version 5.14.0](https://github.com/arendst/Sonoff-Tasmota/archive/v5.14.0.zip)
++ Descargar Firmware [Sonoff-Tasmota version 5.14.0](https://github.com/arendst/Sonoff-Tasmota/archive/v5.14.0.zip) o utilizar la versión integrada en este repositorio
 
 ***
 
