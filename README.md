@@ -172,7 +172,7 @@ Para su correcto funcionamiento es necesario configurar los parámetros referido
 
 ```
 
-> Archivo [user_config.h v5.12.0 completo](https://github.com/arendst/Sonoff-Tasmota/blob/040a7adaf18ac30241a09895b899bf922ed61cdc/sonoff/user_config.h
+> Archivo [user_config.h v5.14.0 completo](https://github.com/krouw/Sonoff-Tasmota-Domergy/blob/master/Sonoff-Tasmota/sonoff/user_config.h
 )
 ***
 
@@ -191,7 +191,7 @@ Antes de Subir nuestro código es necesario comprobar a cual interfaz Serial est
 + Con el botón pulsado conectamos el dispositivo por USB al ordenador y en el Arduino IDE cliqueamos en ```
 Subir ```. (Recordar siempre mantener pulsado el botón del dispositivo hasta que finalice la carga).
 
-+ Una vez finalizada la carga es necesario reiniciar el dispositivo desconectando la TomaCorriente.
++ Una vez finalizada la carga es necesario reiniciar el dispositivo desconectando la Toma de Corriente.
 
 + Para comprobar el estado del dispositvo a través de la Interfaz Web, ingresando por medio del navegador a la URL http://IP_DEL_DISPOSITIVO o comprobando la comunicación entre el dispositivo y el MQTT broker.
 
